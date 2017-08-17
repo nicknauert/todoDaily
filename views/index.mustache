@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <h2>To Do List</h2>
+      <form action="/" method="POST">
+        <input type="text" name="itemAdd" value="" placeholder="Add A Task">
+      </form>
+      <section class="toDoSection">
+        <h4>Pending Items</h4>
+        <ul>
+          {{#todoArr}}
+            <li>{{task}} <a href="/delete/{{todoArr.id}}"><button type="submit" name="delete" data-id="{{todoArr.id}}">Complete</button></a></li>
+          {{/todoArr}}
+        </ul>
+      </section>
+      <section class="completeSection">
+        <h4>Complete Items</h4>
+        <ul>
+          {{#completeArr}}
+            <li>{{task}}</li>
+          {{/completeArr}}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
