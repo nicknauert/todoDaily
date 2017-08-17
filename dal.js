@@ -7,17 +7,33 @@ function addItem(item){
   console.log(todoArr);
 }
 
-function removeItem(itemId){
-  let compItemIdx = todoArr.findIndex(function(item){
-    return item.id == itemId
+function getPendingItems (){
+  return todoArr.filter(function(item){
+    return !item.completed
   })
-  let compItem = todoArr.splice(compItemIdx, 1);
-  completeArr = completeArr.concat(compItem);
-  console.log(todoArr);
-  console.log(completeArr);
+}
+
+function getCompItems(itemId){
+  return todoArr.filter(function(item){
+    return item.completed
+  })
+}
+
+function editItem(){
+}
+
+function removeItem(itemId){
+  return todoArr.find(function(item){
+    if(item.id == itemId){
+      item.completed = true
+      return item
+    }
+  })
 }
 
 module.exports = {
   addItem: addItem,
-  removeItem: removeItem
+  removeItem: removeItem,
+  getPendingItems: getPendingItems,
+  getCompItems: getCompItems
 }

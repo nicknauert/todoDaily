@@ -1,14 +1,17 @@
 module.exports = [
   {
     id: 1,
-    task: 'Mail'
+    task: 'Mail',
+    completed: false
   },
   {
     id: 2,
-    task: 'Eat'
+    task: 'Eat',
+    completed: false
   },
   {
     id: 3,
-    task: 'Work'
+    task: 'Work',
+    completed: false
   }
 ]

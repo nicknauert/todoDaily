@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 
 app.get('/', function(req, res){
-  res.render('index', {todoArr: todoArr, completeArr: completeArr})
+  res.render('index', {todoArr: dal.getPendingItems(), completeArr: dal.getCompItems()})
 })
 
 app.post('/', function(req, res){
@@ -26,11 +26,15 @@ app.post('/', function(req, res){
   res.redirect('/');
 })
 
-app.delete('/delete/:id', function(req, res){
+app.post('/delete/:id', function(req, res){
   dal.removeItem(req.params.id);
   res.redirect('/');
 })
 
+app.post('/edit/:id', function (req, res){
+  dal.editItem(req.params.id, req.body.editItem)
+  res.redirect('/')
+})
 
 
 app.listen(3000, function(req, res){
