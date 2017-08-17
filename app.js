@@ -7,7 +7,6 @@ let todoArr = require('./todo.js');
 let completeArr = require('./comp.js');
 
 
-
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + "/views");
@@ -31,12 +30,18 @@ app.post('/delete/:id', function(req, res){
   res.redirect('/');
 })
 
-app.post('/edit/:id', function (req, res){
-  dal.editItem(req.params.id, req.body.editItem)
-  res.redirect('/')
+app.get('/edit/:id', function (req, res){
+  let chosenItem = dal.getItem(req.params.id)
+  res.render('editItem', chosenItem)
 })
 
+app.post('/edit/:id', function(req, res){
+  dal.editItem(req.params.id, req.body)
+  res.redirect('/');
+})
 
 app.listen(3000, function(req, res){
   console.log("App started on 3000.")
 })
+
+//dont let your memes be dreams

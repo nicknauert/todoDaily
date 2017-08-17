@@ -15,7 +15,7 @@
         <h4>Pending Items</h4>
         <ul>
           {{#todoArr}}
-            <li>{{task}} <form class="" action="/delete/{{id}}" method="POST"><button type="submit" name="delete" data-id="{{id}}">Complete</button></form></li>
+            <li><p>{{task}}</p><form class="" action="/delete/{{id}}" method="POST"><button type="submit" name="delete" data-id="{{id}}">Complete</button></form><a href="/edit/{{id}}">Edit</a></li>
           {{/todoArr}}
         </ul>
       </section>

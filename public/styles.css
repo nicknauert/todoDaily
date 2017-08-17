@@ -47,20 +47,44 @@ li {
 }
 
 button {
-  margin-left: 20px;
+  margin-left: 10px;
   padding: 2px 4px;
-  border: 1px solid rgb(186, 186, 186);
+  border: 1px solid rgb(173, 173, 173);
   border-radius: 20px;
   background-color: transparent;
+  color: rgb(130, 129, 129);
 
 }
 button:focus {
   outline: none;
 }
 button:hover {
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(238, 238, 238);
+}
+
+li>form {
+  width: 50px;
+  float: right;
+}
+
+.toDoSection {
+  width: 250px;
 }
 
 .completeSection li {
   text-decoration: line-through;
+}
+
+li>p {
+  display: inline-block;
+}
+
+li>a {
+  float: right;
+  padding: 2px 4px;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 11px;
+  color: rgb(130, 129, 129);
 }
